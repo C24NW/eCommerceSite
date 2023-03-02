@@ -5,12 +5,15 @@
 
 <h1 class="display-1"> Welcome to Gaming</h1>
 
+
+
+
 <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">Product Types</th>
-                <th scope="col">Typical Price</th>
+                <th scope="col">Average Price</th>
             </tr>
         </thead>
         <tbody>
@@ -20,15 +23,107 @@
             </tr>
             <tr>
 
-                <td>Arcade</td>
-                <td>$5/hour</td>
+                <td>Playstation Games</td>
+                <td>$45.99</td>
+            </tr>
+            <tr>
+
+                <td>Nintendo Games</td>
+                <td>$39.99</td>
+            </tr>
+            <tr>
+
+                <td>PC Games</td>
+                <td>$55.99</td>
             </tr>
         </tbody>
     </table>
 </div>
 
 
-<h2>About Gaming</h2>
-<p>
-    Content to fill in. 
-</p>
+
+
+
+<h2>Top Selling Games</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Game</th>
+            <th scope="col">System</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>The Division</td>
+            <td>XBox</td>
+            <td>$59.99</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Zelda</td>
+            <td>Nintendo</td>
+            <td>$49.99</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Elden Ring</td>
+            <td>Playstation</td>
+            <td>$49.99</td>
+        </tr>
+        
+    </tbody>
+</table>
+<br />
+
+
+<h2>Search For Game</h2>
+<h6>Select System From Drop Down</h6>
+<select class="form-select" aria-label="Default select example">
+    <option selected>Open this select menu</option>
+    <option value="1">XBox</option>
+    <option value="2">Playstation</option>
+    <option value="3">Nintendo</option>
+    <option value="3">PC</option>
+</select>
+<br />
+
+<h6>Select System From Drop Down</h6>
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+        New Games
+    </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+    <label class="form-check-label" for="flexCheckChecked">
+        Used Games
+    </label>
+</div>
+<br />
+
+
+<label for="customRange1" class="form-label">Enter Price Between $19.99 and $59.99</label>
+<input type="range" class="form-range" id="customRange1">
+<br />
+<br />
+<br />
+
+
+
+
+
+
+
+<h2>Contact Form</h2>
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+<div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Enter Message</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
