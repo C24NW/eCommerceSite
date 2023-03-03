@@ -52,5 +52,18 @@ namespace eCommerceSite.Controllers
             }
             return View(g);
         }
+
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            Game? gameToEdit = await _context.Games.FindAsync(id);
+
+            if(gameToEdit == null)
+            {
+                return NotFound();
+            }
+
+            return View(gameToEdit);
+        }
     }
 }
