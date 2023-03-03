@@ -74,6 +74,7 @@ namespace eCommerceSite.Controllers
                 _context.Games.Update(gameModel);       //Creates update statement
                 await _context.SaveChangesAsync();      //Runs update statement
 
+                TempData["Message"] = $"{gameModel.Title} was updated successfully!";
                 return RedirectToAction("Index");
             }
             return View(gameModel);
