@@ -16,16 +16,30 @@ namespace eCommerceSite.Controllers
         }
 
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
+            const int NumGamesToDisplayPerPage = 3;
+            const int PageOffset = 1; //Need page offset to use current page...check lecture
+            int currPage = id ?? 1; //Set currPage to id if it has a value, otherwise use 1
+
+            int totalNumOfProducts = await _context.Games.CountAsync();
+            double maxNumPages = Math.Ceiling((double)totalNumOfProducts / NumGamesToDisplayPerPage);
+            int lastPage = Convert.ToInt32(maxNumPages); //Rounding pages up, to next whole page number
+            
+
             // Get all games from DB
+            //Commented out the method syntax version, same code below as query syntax
             //List<Game> games = _context.Games.ToList();
             List<Game> games = await (from game in _context.Games
-                                      select game).ToListAsync();
+                                      select game)
+                                      .Skip(NumGamesToDisplayPerPage * (currPage - PageOffset))
+                                      .Take(NumGamesToDisplayPerPage)
+                                      .ToListAsync();
 
             // Show them on the page
 
-            return View(games);
+            GameCatalogViewModel catalogModel = new(games, lastPage, currPage);
+            return View(catalogModel);
         }
 
 
