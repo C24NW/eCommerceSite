@@ -22,6 +22,11 @@ namespace eCommerceSite.Controllers
             const int PageOffset = 1; //Need page offset to use current page...check lecture
             int currPage = id ?? 1; //Set currPage to id if it has a value, otherwise use 1
 
+            int totalNumOfProducts = await _context.Games.CountAsync();
+            double maxNumPages = Math.Ceiling((double)totalNumOfProducts / NumGamesToDisplayPerPage);
+            int lastPage = Convert.ToInt32(maxNumPages); //Rounding pages up, to next whole page number
+            
+
             // Get all games from DB
             //Commented out the method syntax version, same code below as query syntax
             //List<Game> games = _context.Games.ToList();
@@ -33,7 +38,8 @@ namespace eCommerceSite.Controllers
 
             // Show them on the page
 
-            return View(games);
+            GameCatalogViewModel catalogModel = new(games, lastPage, currPage);
+            return View(catalogModel);
         }
 
 
